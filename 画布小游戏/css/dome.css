@@ -1,0 +1,174 @@
+			#back{
+				height: 650px;
+				background: url(../img/timg5.gif) no-repeat ;
+				background-size:100% 100%;
+				
+			}
+			#bk{
+				background: url(img/5485103d4a84f.jpg) 0px -50px;
+				width: 650px;
+				height: 400px;
+				margin-top: 100px;
+				padding: 0px 10px;
+				background-color: #FAFAFA;
+				opacity: 0.7;
+				position: absolute;
+				left: 350px;
+			}
+			li{
+				list-style: none;
+			}
+			#bk .a{
+				float: left;
+				width: 190px;
+				padding-top:10px ;
+			}
+			#bk .b{
+				float: right;
+				width: 400px;
+			}
+			#bk .c h2{
+				padding-left:30px ;
+				height: 30px;
+				font-size: 15px;
+			}
+			#bk .c p{
+				padding-left:30px ;
+				height: 30px;
+			}
+			#bk .e {
+				border: solid 1px #EDF5FE;
+				background-color: #FFFFFF;
+				opacity: 0.7;
+			}
+			#bk .e p{
+				padding-left:30px ;
+				margin: 0px;
+				padding: 5px 4px;
+				font-size: 15px;
+				color: #000000;
+			}
+		
+			#bk video{
+				padding: 0px;
+				margin: 0px;
+				padding-left:30px ;
+				height: 35px;
+				width: 360px;
+			}
+			
+			#liu{     
+	            width:189px;     
+	            height: 189px;         
+	            -webkit-animation:run 6s linear 0s infinite;     
+	        }     
+	       #liu img{
+	        	width: 189px;
+	        	height: 189px;
+	        	border-radius:140px;  
+	        }
+	        #liu:hover{     
+	            -webkit-animation-play-state:paused;     
+	        }     
+	        @-webkit-keyframes run{     
+	            from{     
+	                -webkit-transform:rotate(0deg);     
+	            }     
+	            to{     
+	                -webkit-transform:rotate(360deg);     
+	            }     
+	        } 
+	        #data5{
+	        	width: 400px;
+	        }
+	        /*歌词的样式*/
+	       #lyric{
+	       		/*border: solid 1px red;*/
+	       		width: 50px;
+	       		height: 50px;
+	       		/*background-color: #FFFFFF;*/
+	       		color: #FFFFFF;
+	       		position: absolute;
+	       		top: 40px;
+	       		right: 20px;
+	       		display: none;
+	       }
+	       #lyric .geul{
+	       	text-align: center;
+	       }
+	       #switch{
+	       	 margin-top:370px ;
+	       }
+	       #qiehuan{
+	       	 float: right;
+	       }
+	       
+
+			/*视频*/
+			#videos{
+				border: solid 1px red;
+				width: 1200px;
+				height: 600px;
+				background-color: #FFFFFF;
+				position: absolute;
+				top: 40px;
+				left: 60px;
+				display: none;
+			}
+			
+
+
+			#yp{
+	    		margin:5px;
+	    	}
+	    	#text{
+	    		width: 320px;
+	    		height: 30px;
+	    		margin-left:10px ;
+	    	}
+	    	#tm{
+	    		/*border: solid 1px red;*/
+	    		width: 803px;
+	    		height: 423px;
+	    		position: absolute;
+	    		top: 0px;
+	   			z-index: 10;
+	   			color: red;
+	   			overflow: auto;
+	    	}
+	    	samp{
+	    		position: absolute;
+	    		right: 0px;
+	    		font-size: 20px;
+	    	}
+	    	#form{
+	    		/*border: solid 1px red;*/
+	    		width:670px;
+	    		float: left;
+	    	}
+			#contain{
+				/*border: solid 1px red;*/
+				width: 810px;
+				height: 565px;
+				margin-left:50px ;
+				float: left;
+			}
+			#upx{
+				height: 30px;
+				margin-top:4px ;
+			}
+			#close{
+				height: 30px;
+			}
+			/*播放列表*/
+			#lists{
+				border: solid 1px red;
+				width: 300px;
+				height: 550px;
+				float: right;
+			}
+			#kz{
+				/*border: solid 1px red;*/
+				width: 810px;
+				height: 45px;
+			}

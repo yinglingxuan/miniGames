@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<style type="text/css">
+			#title{
+				width: 200px;
+				text-align: center;
+				border: solid 1px #DDDDDD;
+				position: fixed;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="title">
+			<table class="table table-hover">
+				<tr>
+					<td>选项1</td>
+				</tr>
+				<tr>
+					<td>选项2</td>
+				</tr>
+				<tr>
+					<td>选项3</td>
+				</tr>
+				<tr>
+					<td>选项4</td>
+				</tr>
+			</table>
+		</div>
+		
+		<script type="text/javascript">
+			 // 1. 禁用默认鼠标右键菜单
+			    $(document).contextmenu(function(){
+			        return false;
+			    });
+			     $(document).mousedown(function(e){
+			        //当点击鼠标右键，显示菜单
+			        if(e.button == 2){
+			          $("#title").show();
+			          $("#title").css({"left":e.clientX,"top":e.clientY});
+			        }
+			    });
+			    $(document).bind('click', function(e) {
+			     	$("#title").hide();
+			     })
+			     
+		</script>
+	</body>
+</html>

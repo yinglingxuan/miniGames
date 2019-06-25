@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/zij.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		
+		<meta />
+	</head>
+	<body>
+		<div id="title">
+			<div class="titleleft">
+				<div >
+					<img src="img/loge.gif" width="40px" height="40px"/><samp>初  站</samp>
+				</div>
+			</div>
+			<div class="ss">
+					<input class="sr" id="shos" type="text" name="搜索"  value="" />
+					<input class="anniu" type="submit" name="提交" id="" onclick="fun7()" value="搜索" />
+			</div>
+			<div class="dropdown" >
+				
+				<div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+					切换主题<span class="caret"></span>
+				</div>
+				
+				<div class="dropdown-menu ulbj" aria-labelledby="dLabel">
+				   <div class="c" ><a href="#" onclick="fun(this)">黑夜模式</a></div> 
+				   <div class="c" ><a href="#" onclick="fun(this)">粉红系列</a></div> 
+				   <div class="c" ><a href="#"onclick="fun(this)">血红世界</a></div> 
+				   <div class="c" ><a href="#"onclick="fun(this)">碧海蓝天</a></div> 
+				   <div class="c" ><a href="#"onclick="fun(this)">炫酷星空</a></div> 
+				 </div>
+			</div>
+		</div>
+		<!--下面的是中间的部分-->
+		<div id="zho">
+			<div class="you">
+				<!--下面的是歌词的隐藏部分-->
+				<div class="xs">
+					<div class="lunzhuan">
+						<iframe src="lrc/40㍍P - からくりピエロ (活动小丑).lrc" id="ddd" style="display: none;"></iframe> <!--获取歌词数据-->
+						<div class="geci">
+							<div class="tom">
+								
+						</div>
+							<ul class="geul">
+								
+							</ul>
+						</div>
+					</div>
+					<div class="tup">
+						
+						<iframe src="index(1).html"></iframe>
+					</div>
+				</div>
+				<!--搜索后的页面-->
+				<div id="sosuolan" style=" overflow:auto ">
+					<div class="fanhui">
+						<a href="#" onclick="fun8()">点击返回上一层</a>
+					</div>
+					<div class="xingxs">
+						<div class="zuos">
+							歌名
+						</div>
+						<div class="yous">
+							歌手
+						</div>
+					</div>
+						<ul class="gem">
+							
+						</ul>	
+						<div class="ges">
+							<ul>
+								
+							</ul>
+						</div>
+								
+				</div>
+				<!--下面的是中间的导航条部分-->
+				<div id="wrap">
+				  <ul class="tabs group">
+				    <li><a href="#/sy" class="active" id="bj2">歌曲首页</a></li>
+				    <li><a href="#/two" class="bj" >个性分类</a></li>
+				    <li><a href="#/three"class="bj">最新音乐</a></li>
+				    <li><a href="#/ges" class="bj">歌手</a></li>
+				    <li><a href="#/tj" class="bj">个性推荐</a></li>
+				    <p><a href="搞笑的.html" style=" display: block; width: 100%;height: 100%;"></a></p>
+				  </ul>
+				  
+				  <div id="content">
+				  	<div class="a" id="sy">223323</div>
+				    <div class="a" id="two" style="display: none;  overflow:auto">
+				    	<h4>个性分类</h4>
+				    	<div class="fenglei">
+				    		<ul>
+				    			<li><a href="#" onclick="fun9(this)">轻音乐</a></li>
+				    			<li><a href="#" onclick="fun9(this)">动漫</a></li>
+				    			<li><a href="#" onclick="fun9(this)">伤感</a></li>
+				    			<li><a href="#" onclick="fun9(this)">DJ</a></li>
+				    			<li><a href="#" onclick="fun9(this)">古风</a></li>
+				    			<li><a href="#" onclick="fun9(this)">民谣</a></li>
+				    			<li><a href="#" onclick="fun9(this)">怀旧</a></li>
+				    			<li><a href="#" onclick="fun9(this)">治愈</a></li>
+				    			<li><a href="#" onclick="fun9(this)">情歌</a></li>
+				    			<li><a href="#" onclick="fun9(this)">黑暗</a></li>
+				    		</ul>
+				    	</div>
+				    	<h4>精品</h4>
+				    	<div class="xianshi">
+				    		<ul>
+				    			
+				    		</ul>
+				    	</div>
+				    	<!--这是点击后的界面-->
+				    	<div class="xsjieguo">
+				    		<ul>
+				    			
+				    		</ul>
+				    	</div>
+				    </div>
+				    <!--这里是最新音乐-->
+				    <div class="a" id="three" style="display: none;  overflow:auto">
+				    	<h4>语种</h4>
+				    	<ul class="zuix">
+				    		<li><a href="#" onclick="fun12(this)">全部</a></li>
+				    		<li><a href="#" onclick="fun12(this)">华语</a></li>
+				    		<li><a href="#" onclick="fun12(this)">日语</a></li>
+				    		<li><a href="#" onclick="fun12(this)">欧美</a></li>
+				    		<li><a href="#" onclick="fun12(this)">韩国</a></li>
+				    		<li><a href="#" onclick="fun12(this)">其他</a></li>
+				    	</ul>
+				    	<div class="zuixinxs">
+				    		<div class="zuixinxs">
+				    		<div class="zuo" style="border: solid 1px #000000;width: 65%;float:left;">
+				    			<ul>
+				    				<li>1111111111111111111111111111111111111111111111</li>
+				    			</ul>
+				    		</div>
+				    		<div class="zho" style="border: solid 1px #000000;width: 11%; float:left;">
+				    			<ul>
+				    				<li>22222222222221111111111111111111111</li>
+				    			</ul>
+				    		</div>
+				    		<div class="you" style="border: solid 1px #000000;width: 24%; float:left;">
+				    			<ul>
+				    				<li>3</li>
+				    			</ul>
+				    		</div>
+				    	</div>
+				    	</div>
+				    </div>
+				    <!--下面的是歌手栏目-->
+				    <div class="a" id="ges" style="display: none;  overflow:auto">
+				    	<h4>语种</h4>
+				    	<ul class="yuzho">
+				    		<li><a href="#" onclick="fun10(this)">全部</a></li>
+				    		<li><a href="#" onclick="fun10(this)">华语</a></li>
+				    		<li><a href="#" onclick="fun10(this)">日语</a></li>
+				    		<li><a href="#" onclick="fun10(this)">欧美</a></li>
+				    		<li><a href="#" onclick="fun10(this)">韩国</a></li>
+				    		<li><a href="#" onclick="fun10(this)">其他</a></li>
+				    	</ul>
+				    	<!--这里是显示全部歌手的-->
+				    	<div class="geshoxsquanb">
+				    		<ul>
+				    			
+				    		</ul>
+				    	</div>
+				    	<!--这里的是根据点击语种弹出的歌手-->
+				    	<div class="dianjiho">
+				    		<ul>
+				    			
+				    		</ul>
+				    	</div>
+				    	<!--这里根据点击歌手显示出所有的歌曲-->
+				    	<div class="gequ">
+				    		<ul>
+				    			
+				    		</ul>
+				    	</div>
+				    	
+				    </div>
+				    <div class="a" id="tj" style="display: none;  overflow:auto">5</div>
+				  </div>
+			  
+			</div>
+			</div>
+			<div class="zuo">
+				<div class="zuoshang">
+					<h3><a href="#" onclick="fun3()">全部歌曲</a></h3>
+				</div>
+				<div class="zuozho"  style=" overflow:auto ";>
+				<div class="xx">
+					
+				</div>
+				</div>
+				<div class="zuoxia">
+					<div class="a" id="data3">
+						<button >
+							<a href="#" ><img src="yingyueing/动漫/40㍍P;.jpg" width="105px" height="85px";/></a>
+						</button>
+							
+					</div>
+					<div class="b">
+						<div class="a1" id="data1">40㍍P - からくりピエロ (活动小丑)</div>
+						<div class="a2" id="data2">40㍍P;</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div id="xia">
+			<div class="xiazuo">
+					<a href="#" class="shangsho" onclick="fun2()">
+						
+					</a>
+					<a href="#" class="xiasho" onclick="fun1()">
+						
+					</a>
+			</div>
+			
+			<div class="xiayou">
+				<video  autoplay="false" name="media" id="data5" controls='true' >
+				<source  id="data4" src="MP3/40㍍P - からくりピエロ (活动小丑).mp3" type="audio/mpeg">
+			</div>
+		</div>
+		<div id="div1"></div>
+		
+		<!--下面的是歌词页面的显示和隐藏-->
+		<script type="text/javascript">
+			var count2=0;
+			$(document).ready(function(){
+			  $("button").click(function(){
+			  	count2++;
+			  	if(count2>1){
+			  		$(".xs").toggle();
+			  	}else{
+			  		fun4();
+			  		$(".xs").toggle();
+			  	}
+			  });
+			});
+		</script>
+	<script src='js/jquery.min.js'></script>
+    <script  src="js/index.js"></script>
+    <script src="js/chucun.js"></script>
+	</body>
+</html>

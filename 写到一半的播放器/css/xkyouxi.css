@@ -1,0 +1,108 @@
+ #box,#box1,#box2,#box3{ 
+        width: 75px; 
+        height: 80px; 
+        position: absolute; 
+        background: palevioletred; 
+      } 
+     
+      #r,#r1,#r2,#r3{
+      	position: absolute;
+      	top: 500px;
+      	height: 50px;
+      	width: 80px;
+      	border-radius: 10px;
+      	background: url(img/guang.gif) no-repeat;
+      	background-size: 100% 100%;
+      	
+      }
+      
+      #box,#box1,#box2,#box3{
+      	background-size: 100% 100%;
+      	border-radius: 2px;
+      	border: 2px solid mintcream;
+      }
+
+			#panel{
+			    display:none;
+			    opacity: 0.8;
+			    color: black;
+			    font-weight: bold;
+			    font-size: 13px;
+			    height: 380px
+			}
+			#btn,#flip{
+				 position: absolute;
+				 z-index: 50;
+				 width:240px;
+				 height: 60px; 
+				 border-radius: 10px;
+				 left: 70px;
+				 background: url(img/sg.gif) no-repeat; 
+				background-size: 100% 100%;
+			}
+			#like1,#like2,#like3{
+				font-size: 30px;
+			}
+			#d1,#panel,#yc{
+				width: 380px;
+			}
+			
+			#box,#r{
+				left: 0px;
+			}
+			#box1,#r1{
+				left: 100px;
+			}
+			#box2,#r2{
+				left: 200px;
+			}
+			#box3,#r3{
+				left: 300px;
+			}
+			#d2{
+				left: 350px;
+			}
+			
+			@media only screen and (min-width: 315px) and (max-width: 400px) {
+					#d1,#panel,#yc{
+						width: 360px;
+					}
+					#box,#box1,#box2,#box3{
+						width: 80px;
+					}
+					#box,#r{
+						left: 0px;
+					}
+					#box1,#r1{
+						left: 90px;
+					}
+					#box2,#r2{
+						left: 180px;
+					}
+					#box3,#r3{
+						left: 270px;
+					}
+					
+					#btn,#flip{
+				
+				 		width:200px;
+				
+					}
+					 #r,#r1,#r2,#r3{
+					 	width: 85px;
+					 }
+					 #d2{
+					 	left: 330px;
+					 }
+					 #panel{
+					 	 font-size: 12px;
+					 	 height: 340px;
+					 }
+			}
+			#yc2{
+				position: absolute;
+				display: none;
+			}
+			#yc1{
+				position: absolute;
+			}

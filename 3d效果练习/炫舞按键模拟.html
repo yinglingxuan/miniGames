@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.red{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="text"><span id="ys"></span><span id="txt"></span></div>
+		<script type="text/javascript">
+			var text="→←↑↓→↓←↑→←↑↓↑→↓←←↑→↓←↑→↓←↑→↓←↑→↓";
+			$("#text #txt").append(text);
+	
+				 $(document).keydown(function(e){
+				 	
+					var txt2=$("#text #txt").text();
+					var txt=txt2.substring();
+				 	if(e.keyCode==39&&txt[0]=="→"){  //右
+				 		$("#text #txt").empty();
+				 		$("#ys") .append("<a class='red'>"+txt[0]+"</a>");
+				 		var newTxt="";
+				 		for (var i=1;i<txt.length;i++) {
+				 			newTxt=newTxt+txt[i];
+				 		}
+				 		$("#text #txt").append(newTxt);
+				 	}else if(e.keyCode==37&&txt[0]=="←"){  //左
+				 		
+				 		$("#text #txt").empty();
+				 		$("#ys") .append("<a class='red'>"+txt[0]+"</a>");
+				 		var newTxt="";
+				 		for (var i=1;i<txt.length;i++) {
+				 			newTxt=newTxt+txt[i];
+				 		}
+				 		$("#text #txt").append(newTxt);
+				 	}else if(e.keyCode==40&&txt[0]=="↓"){   //下
+				 		$("#text #txt").empty();
+				 		$("#ys") .append("<a class='red'>"+txt[0]+"</a>");
+				 		var newTxt="";
+				 		for (var i=1;i<txt.length;i++) {
+				 			newTxt=newTxt+txt[i];
+				 		}
+				 		$("#text #txt").append(newTxt);
+				 	}else if(e.keyCode==38&&txt[0]=="↑"){   //上
+				 		$("#text #txt").empty();
+				 		$("#ys") .append("<a class='red'>"+txt[0]+"</a>");
+				 		var newTxt="";
+				 		for (var i=1;i<txt.length;i++) {
+				 			newTxt=newTxt+txt[i];
+				 		}
+				 		$("#text #txt").append(newTxt);
+				 	}
+				});
+		
+		</script>
+	</body>
+</html>

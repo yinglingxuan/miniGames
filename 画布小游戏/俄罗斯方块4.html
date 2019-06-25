@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <script src="../js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+   		 <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+   		 <style type="text/css">
+   		 	#by{
+   		 		/*border: solid 1px red;*/
+   		 		width: 560px;
+   		 		margin: auto;
+   		 		
+   		 	}
+   		 	#title{
+   		 		width: 560px;
+   		 		height: 600px;
+   		 		position: absolute;
+   		 	}
+   		 	#title2{
+   		 		width: 150px;
+   		 		height: 150px;
+				position: absolute;
+				right: 0px;
+				top: 20px;
+				/*border: solid 1px red;*/
+   		 	}
+   		 </style>
+	</head>
+	<body>
+		<div id="by">
+			<div id="title">
+				<canvas id="myCanvas" height="600" width="400" style="border: 2px solid #3c763d"></canvas>
+				<div id="title2">
+					<canvas id="Canvas" height="150" width="150" style="border: 2px solid #3c763d"></canvas>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			var newX=120;//记录这个图形的左右位置
+			var count=0;   //记录下落的速度
+			var shape=0; //记录形状
+			var finallys=new Array(); //记录落下后停止的位置
+			var re=2;   //获取随机数
+			var fat=1;  //每帧的速度
+			var xyg=0;  //下一个方块
+			var dfen=0;//分数
+			var c=document.getElementById("myCanvas");
+      		var ctx=c.getContext("2d");
+      		
+      		//下个方格的画布
+      		var c2=document.getElementById("Canvas");
+      		var ctx2=c2.getContext("2d");
+      			
+      			
+      		var data=[[[[1,0,0,0],[1,0,0,0],[1,1,0,0],[0,0,0,0]],[[1,1,1,0],[1,0,0,0],[0,0,0,0],[0,0,0,0]],[[1,1,0,0],[0,1,0,0],[0,1,0,0],[0,0,0,0]],[[0,0,1,0],[1,1,1,0],[0,0,0,0],[0,0,0,0]]],
+      				 [[[1,0,0,0],[1,1,0,0],[1,0,0,0],[0,0,0,0]],[[1,1,1,0],[0,1,0,0],[0,0,0,0],[0,0,0,0]],[[0,0,1,0],[0,1,1,0],[0,0,1,0],[0,0,0,0]],[[0,0,0,0],[0,1,0,0],[1,1,1,0],[0,0,0,0]]],
+      				 [[[0,1,0,0],[0,1,1,0],[0,0,1,0],[0,0,0,0]],[[0,1,1,0],[1,1,0,0],[0,0,0,0],[0,0,0,0]],[[0,1,0,0],[0,1,1,0],[0,0,1,0],[0,0,0,0]],[[0,0,0,0],[0,1,1,0],[1,1,0,0],[0,0,0,0]]],
+      				 [[[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]],[[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]],[[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]],[[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]]],
+      				 [[[0,0,1,0],[0,1,1,0],[0,1,0,0],[0,0,0,0]],[[1,1,0,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]],[[0,0,1,0],[0,1,1,0],[0,1,0,0],[0,0,0,0]],[[1,1,0,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]]],
+      				 [[[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]],[[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],[[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]],[[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]]]
+      		];
+			function  dy(){
+				ctx.clearRect(0, 0, c.width,c.height);  //清除画布
+				constitute();   //调用组成画布的方法
+				count=count+fat;   // 下落的速度
+				ground(finallys);    //调用已经在底部的方块的方法
+				ctx.font="20px 微软雅黑";
+		        ctx.fillText("得分："+dfen+"",20,30);
+				requestAnimationFrame(dy);   //调用循环
+			}
+			requestAnimationFrame(dy);
+			
+			if(finallys.length==0){
+				xyg=Math.floor(Math.random()*6);
+				xygs();
+			}
+			
+			
+			
+			
+			constitute()
+			//组成图形的方法
+      		function constitute(){
+      			var Arr=new Array(); // 存储当前下来的方块位置
+      			var y=0;   //记录组成形状的位置--相加
+	      		for (var i=0;i<data[re][shape].length;i++) {
+	      			var x=0; 
+	      			for (var j=0;j<data[re][shape][i].length;j++) {
+	      				x+=20;
+	      				if(data[re][shape][i][j]==1&&Arr.length<4){
+	      					 ctx.strokeStyle = "#000";
+	      					 ctx.strokeRect(x+newX,y+count,20,20);
+	      					 ctx.fillStyle="#000000";  //定义颜色
+	      					 ctx.fillRect(x+newX,y+count,19,19);    //画图 
+	      					 var a={
+	      					 	xs:x+newX,
+	      					 	ys:y+count
+	      					 };
+	      					 Arr.push(a);
+	      					 if(Arr.length==4){
+	      					 	anew(Arr);
+	      					 }
+	      				}
+	      			}
+	      			y+=20;
+	      		};
+      		}
+      		
+      		//掉落完成后重新调用
+      		function anew (arr){
+      			var da=bottom(arr);
+      			if(da==1){
+      				finallys.push(arr);
+      				count=0;  //恢复成原来的
+	      			newX=120;  //恢复
+	      			re=xyg;
+	      			xyg=Math.floor(Math.random()*6);
+	      			ctx2.clearRect(0, 0, c.width,c.height);  //清除画布
+	      			xygs();
+      			}
+      		}
+      		
+      		
+      		
+      		//判断是否碰到下面的障碍物
+      		function bottom(arr){   //判断是否掉落底部//返回1表示可以保存起来
+      			console.log("全部的数组："+finallys);
+      			for (var i =0;i<arr.length;i++) {
+      				if(arr[i].ys>=c.height-20){
+      					console.log(arr);
+      					return 1;
+      				}
+      				for (var t=0;t<finallys.length;t++) {
+	      				for (var j=0;j<finallys[t].length;j++) {
+      						if(finallys[t][j].ys==arr[i].ys+20&&finallys[t][j].xs==arr[i].xs){
+								console.log(arr);
+								return 1;
+      						}
+	      				}
+	      			}
+      			}
+      			return 0;
+      		}
+      		
+      	
+	      	//用来组成下标已经堆积的格子
+      		function  ground(finallys){
+      			deletes();
+      			for (var i=0;i<finallys.length;i++) {
+      				for (var j=0;j<finallys[i].length;j++) {
+      					 ctx.strokeStyle = "#000";
+      				 	 ctx.strokeRect(finallys[i][j].xs,finallys[i][j].ys,20,20);
+      				 	 ctx.fillStyle="#000000";  //定义颜色
+	      				 ctx.fillRect(finallys[i][j].xs,finallys[i][j].ys,19,19);    //画图 
+	      				 if(finallys[i][j].ys<=20){
+	      				 	this.finallys=new Array();
+	      				 	count=0;
+	      				 	constitute();   //调用组成画布的方法
+	      				 	/*ctx.clearRect(0, 0, c.width,c.height);  //清除画布*/
+	      				 	return;
+	      				 }		 
+      				}
+      			}
+      			
+      		}	
+      		
+      	
+      	//判断是否达到清除的位置
+      	function deletes(){
+			var c=600;
+			var add=new Array;
+			for (var i=0;i<c/20;i++) {
+				c=c-20;
+				add.push(c);
+			}
+			for (var a=0;a<add.length;a++) {
+				var cou=0;
+				for (var t=0;t<finallys.length;t++) {
+	  				for (var j=0;j<finallys[t].length;j++) {
+						if(add[a]==finallys[t][j].ys){
+							cou++;
+						}
+	  				}
+	  		    }
+				if(cou>=20){
+					qc(add[a]);
+					cou=0;
+				}
+			}
+		}
+      		
+      		
+      	//清除和向下增加
+      	function qc(add){
+      		for (var t=0;t<finallys.length;t++) {
+  				for (var j=0;j<finallys[t].length;j++) {
+					if(add==finallys[t][j].ys){
+						finallys[t].splice(j,1);
+						dfen=dfen+10;
+						j--;
+					}
+  				}
+  		    }
+      		for (var t=0;t<finallys.length;t++) {
+  				for (var j=0;j<finallys[t].length;j++) {
+					if(finallys[t][j].ys<add){
+						finallys[t][j].ys=finallys[t][j].ys+20;
+					}
+  				}
+  		    }
+      	}
+      	
+      	
+      	
+      	//判断不能掉出围起来的范围
+      		function crash(count,e){
+	      		var newCount=0;  //判断是否有下降的数据有就下降
+      			if(count!=0){
+      				newCount=count;
+      			}
+      			var y=0;   //记录组成形状的位置--相加
+      			
+      			var make=-1;
+	      		for (var i=0;i<data[re][shape].length;i++) {
+	      			var x=0; 
+	      			for (var j=0;j<data[re][shape][i].length;j++) {
+	      				x+=20;
+	      				if(data[re][shape][i][j]==1){
+	      					//防止变形的时候溢出
+	      					if(e==38&&x+newX<0||x+newX>c.width-20){
+	      						if(x+newX<0){
+	      							newX=newX+20;
+	      						}else{
+	      							newX=newX-20;
+	      						}
+	      					}
+	      					if(e==38){
+	      						if(y+count>c.height-20){
+	      							if(shape!=0){
+										shape=shape-1;
+									}else{
+										shape=3;
+									}
+	      						}
+	      					}
+	      					
+	      					////防止突出右边
+	      					if(e==39&&c.width-20<x+newX+20){
+	      						make=1;
+	      					}
+	      					//防止突出左边
+	      					if(e==37&&x+newX-20<0){
+	      						make=1;
+	      					}
+	      					
+	      					if(y+newCount>c.height-20){
+	      						count=count-20;
+	      					}
+	      					
+	      					var ys=(y+count)%20;
+	      					var es=20-ys;
+	      					var newCount=y+count+es;
+	      					
+	      					for (var t=0;t<finallys.length;t++) {
+				  				for (var j1=0;j1<finallys[t].length;j1++) {
+									if(finallys[t][j1].ys==newCount&&finallys[t][j1].xs==x+newX+20&&e==39){
+										newX=newX-20;
+									}
+									if(finallys[t][j1].ys==newCount&&finallys[t][j1].xs==x+newX-20&&e==37){
+										newX=newX+20;
+									}
+									if(finallys[t][j1].ys==newCount&&finallys[t][j1].xs==x+newX-20&&e==38){
+										if(shape!=0){
+											shape=shape-1;
+										}else{
+											shape=3;
+										}
+										
+									}
+				  				}
+				  			}
+	      				}
+	      			}
+	      			y+=20;
+	      		};
+	      		
+	      		if(e==39&&make==-1){
+	      			newX=newX+20;
+	      		}
+	      		if(e==37&&make==-1){
+	      			newX=newX-20;
+	      		}
+      		}
+      		
+      		
+      		
+      		
+      		$(document).keydown(function(e){
+	            if(e.keyCode==39){  //右
+					crash(count,e.keyCode);//判断是否可以加到右边
+	            }else if(e.keyCode==37){  //左
+	            	//判断是否可以加到左边
+	            	crash(count,e.keyCode);
+	            }else if(e.keyCode==40){   //下
+	            	var i=count%10;
+		        	var j=(count-i)/10;
+		        	count=10*j;
+	            	fat=10;
+	            	
+	            }else if(e.keyCode==38){   //上
+	               shape++;
+	               if(shape>3){
+	               	shape=0;
+	               }
+	               crash(count,e.keyCode);  //防止变形溢出
+	            }
+	        });
+      		document.onkeyup=function(){
+		    	fat=1;
+		    }
+      		
+ 
+			
+      		function xygs(){
+      			var y=0;   //记录组成形状的位置--相加
+	      		for (var i=0;i<data[xyg][shape].length;i++) {
+	      			var x=0; 
+	      			for (var j=0;j<data[xyg][shape][i].length;j++) {
+	      				x+=20;
+	      				if(data[xyg][shape][i][j]==1){
+	      					 ctx2.strokeStyle = "#000";
+	      					 ctx2.strokeRect(x+30,y+50,20,20);
+	      					 ctx2.fillStyle="#000000";  //定义颜色
+	      					 ctx2.fillRect(x+30,y+50,19,19);    //画图 
+	      				}
+	      			}
+	      			y+=20;
+	      		};
+      		}
+		</script>
+		
+	</body>
+</html>

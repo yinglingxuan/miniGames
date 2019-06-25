@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>createMediaStreamSource example</title>
+
+    <link rel="stylesheet" href="">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <video controls>
+    </video>
+
+    <input type="range" min="1" max="40">
+
+    </body>
+<script>
+    //输出到这个视频下
+    var video = document.querySelector('video');
+    //获取音量值
+    var range = document.querySelector('input');
+    // getUserMedia块 - 抓取流
+    //将它放入MediaStreamAudioSourceNode
+    //还将视觉效果输出到视频元素中
+    if (navigator.mediaDevices) {
+        navigator.mediaDevices.getUserMedia ({audio: true, video: true}).then(function(stream) {
+                video.srcObject = stream;
+                video.onloadedmetadata = function(e) {
+                    video.play();
+                    video.muted = true;
+                };
+                //创建MediaStreamAudioSourceNode
+                //将HTMLMediaElement输入其中
+                var audioCtx = new AudioContext();
+                var source = audioCtx.createMediaStreamSource(stream);
+                //创建一个biquadfilter
+                var biquadFilter = audioCtx.createBiquadFilter();
+                biquadFilter.type = "lowshelf";
+                biquadFilter.frequency.value = 1000;
+                biquadFilter.gain.value = range.value;
+                //将AudioBufferSourceNode连接到gainNode
+                //和gainNode到目的地，所以我们可以直播
+                //音乐并使用鼠标光标调整音量
+                source.connect(biquadFilter);
+                biquadFilter.connect(audioCtx.destination);
+                //移动鼠标时获取新的鼠标指针坐标
+                //然后设置新的增益值
+                range.oninput = function() {
+                    biquadFilter.gain.value = range.value;
+                }
+            })
+    } else {
+        console.log('getUserMedia not supported on your browser!');
+    }
+
+</script>
+</html>

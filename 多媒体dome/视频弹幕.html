@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+    	.item{
+    		border: solid 2px #101010;
+    		width: 703px;
+    		height: 513px; 
+    		position: absolute;
+    		top: 20px;
+    		left: 280px;
+    	}
+    	#yp{
+    		margin:5px;
+    	}
+    	#text{
+    		width: 650px;
+    		height: 30px;
+    	}
+    	#tm{
+    		/*border: solid 1px red;*/
+    		width: 703px;
+    		height: 453px;
+    		position: absolute;
+    		top: 0px;
+   			z-index: 10;
+   			color: red;
+   			overflow: auto;
+    	}
+    	samp{
+    		position: absolute;
+    		right: 0px;
+    		font-size: 20px;
+    	}
+    	
+    </style>
+</head>
+<body>
+	<div class="item">
+		<div id="tm">
+			
+		</div>
+		<video id="yp" width="700" height="500" controls>
+	  		<source src="../img/林志松出品.mp4" type="video/mp4">
+		</video>
+		
+		<form action="" method="post"  id="form">
+			<input type="text" name="text" id="text" placeholder="发送弹幕" />
+			<input type="submit" value="发送" id="submit"/>
+		</form>
+		
+		
+		
+	</div>
+  	
+  	<script type="text/javascript">
+  		var data=new Array(); //保存数据
+  		var date;   //记录当前播放的时间
+  		var music = document.getElementById("yp");  // 获得视频对象\
+		
+		
+		
+		$("#form").submit(function(e){
+			date=Math.ceil(music.currentTime+1);  //当前播放的时间
+			var text=$("#text").val();	
+			var newData={
+				texts:text,
+				dates:date
+			}
+			data.push(newData);
+			
+			e.stopPropagation();
+			return false;
+		});
+		
+		var aee=["red","cyan","green","blue","orange","purple","#557CC1","#DA63FF","#93F100","#FECCE5"];
+		var pd=true;
+		setInterval(function(){
+				for (var i=0;i<data.length;i++) {
+				if(Math.ceil(music.currentTime)==data[i].dates){
+					var p=Math.random()*420;    //获取随机数
+					$("#tm").append('<samp class=_'+i+' style="margin-top:'+p+'px">'+data[i].texts+'</samp>');
+					var p2=Math.random()*10;    //获取随机数对应颜色
+					var n=Math.ceil(p2);
+					$("._"+i+"").css("color",aee[n]);
+	
+				}	
+			}
+				
+			if(pd){
+				for (var i=0;i<data.length;i++) {
+					$("._"+i+"").animate({left: '-1000px'},30000); 
+				}
+			}
+			
+		},1000);
+			
+		var count=0;
+		$("#tm").click(function(){
+			count++;
+			if(count%2==0){
+				music.pause();
+					$("samp").stop();
+		
+				pd=false;
+			}else{
+				music.play();
+				for (var i=0;i<data.length;i++) {
+					$("._"+i+"").animate({left: '-1000px'},30000); 
+				}
+				pd=true;
+			}
+			
+		})
+	
+		
+		
+		
+		
+		
+		
+		
+  	</script>
+</body>
+</html>

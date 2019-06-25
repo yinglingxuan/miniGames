@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>	
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style> 
+div
+ 	body{
+        margin: 0;/*清除默认外边距*/
+    }
+     /*设置画框*/
+     .m-frame{
+        position: absolute;
+        left: 50%;       /*将这个画框调到中间*/
+        top: 50%;
+        transform: translate(-50%,-50%);/*实现垂直水平均居中*/
+        perspective: 500px;/*在画框上设置透视*/
+    }
+    
+   /*设置画布*/
+    .m-frame .canvas{
+        position: relative;
+        width: 200px;    /*将这个画布调宽高*/
+        height: 200px;
+        animation: canvas 5s linear 0s infinite;    /*调用3d旋转,旋转时间的快慢，线性的,隔秒开始,是否无限*/
+        transform-style: preserve-3d;/*让子元素保留3d效果*/
+    }
+     /*开始定义默认全部一开始默认*/
+    .m-frame .canvas .side{     /*设置全部默认*/
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        transition: all 0.3s linear 0s;    /*设置全部隔秒动画效果* 线性，开始时间0秒*/  
+        
+    }  
+     .m-frame .canvas .top{		/*头部*/
+     	transform: rotateX(90deg) translateZ(100px);  /*设置度数*/
+     }
+     .m-frame .canvas .bottom{/*设置底部*/
+     	transform: rotateX(-90deg) translateZ(100px);  /*设置度数*/
+     }
+     .m-frame .canvas .left{
+     	transform: rotateY(-90deg) translateZ(100px);  /*设置度数*/
+     }
+      .m-frame .canvas .right{
+        transform: rotateY(90deg) translateZ(100px);  /*设置度数*/
+    }
+     .m-frame .canvas .back{
+         transform: rotateY(-180deg) translateZ(100px);   /*后面的方块*/
+    }
+     .m-frame .canvas .front{
+     	  transform: translateZ(100px);						/*前面的方块*/
+     }
+     
+     img{
+     	 width: 100%;
+         height: 100%;
+     }
+     @keyframes canvas{
+        from{
+            transform: rotate3d(0,0,0,0);
+        }
+        to{
+            transform: rotate3d(1,1,-1,360deg);
+        }
+    }
+</style>
+</head>
+<body>
+
+
+ 	<div class="m-frame"><!--画框-->
+        <div class="canvas"><!--画布-->
+            <div class="side top"> <img src="../img/40㍍P;.jpg"/></div>
+            <div class="side bottom"> <img src="../img/Aimer (エメ);.jpg"/></div>
+            <div class="side left"> <img src="../img/cg.jpg"/></div>
+            <div class="side right"> <img src="../img/kdtkgsavw5f.jpg"/></div>
+            <div class="side back"><img src="../img/zcym.jpg"/></div>
+            <div class="side front"><img src="../img/zcym.jpg"/></div>
+        </div>
+    </div>
+
+</body>
+</html>

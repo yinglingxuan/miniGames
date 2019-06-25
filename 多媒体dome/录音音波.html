@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#a{
+				border: solid 1px red;
+				width: 200px;
+				height: 200px;
+				background-color: green;
+			}
+			#b{
+				border: solid 1px red;
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			ul li{
+				border: solid 1px  red ;
+				list-style: none;
+				width: 100px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="status"></div>
+		<ul>
+			<li class="10"></li>
+			<li class="9"></li>
+			<li class="8"></li>
+			<li class="7"></li>
+			<li class="6"></li>
+			<li class="5"></li>
+			<li class="4"></li>
+			<li class="3"></li>
+			<li class="2"></li>
+			<li class="1"></li>
+		</ul>
+		<input type="range" min="1" max="40">
+		
+		<script type="text/javascript">	
+      			//获取这个input下的数值来改变音量
+      			var range = document.querySelector('input');
+      		
+      			//获取流    开启audio音频 ，  video 视频
+      			navigator.mediaDevices.getUserMedia ({audio: true/*, video: true*/}).then(function(stream) {
+		         //创建一个管理和播放声音的audioContext对象 可能别的浏览器不支持所以可以||或者多个
+		        var audioCtx=new window.AudioContext || window.webkitAudioContext;  
+		        //createMediaStreamSource方法，将stream参数传入，以实现将麦克风音频输入该对象。
+		       	var liveSource=audioCtx.createMediaStreamSource(stream);
+		        // 创建二阶滤波器
+		        var biquadFilter = audioCtx.createBiquadFilter();
+		        biquadFilter.type = "lowshelf";
+		        biquadFilter.frequency.value = 10000;
+		        // 把AudioBufferSourceNode连接到gainNode
+		        // gainNode连接到目的地, 所以我们可以播放
+		        // 音乐并用鼠标调节音量
+		        liveSource.connect(biquadFilter);  //连接 麦克风音频
+		        biquadFilter.connect(audioCtx.destination);   //播出到扬声器 播放destination播放到音频的终点
+		        
+		        range.oninput = function() {
+		        	//获取他的音量,改变音量
+		            biquadFilter.gain.value = range.value;
+		        }
+		        
+				/*创建一个音频分析对象，采样的缓冲区大小为4096，输入和输出都是单声道
+				在该对象中指定采样的缓冲区域大小，该值一般为256、512、1024、2048、4096、8192、16384中的一种，
+				数字越大则采样缓冲区越大，对应的audioprocess事件的触发频率也越低，数字越小则反之，在此将该参数设置为4096。
+				同时，设置音频分析的输入与输出都是单声道，其参数为1（若要以双声道进行分析则可设置为2）。*/
+				var levelChecker = audioCtx.createScriptProcessor(4096,2,2); 
+				levelChecker.connect(audioCtx.destination);   // 放入声音
+				liveSource.connect(levelChecker); //将该分析对象与麦克风音频进行连接
+				levelChecker.onaudioprocess = function(e) { //开始处理音频
+						var buffer = e.inputBuffer.getChannelData(0); //获得缓冲区的输入音频，转换为包含了PCM通道数据的32位浮点数组
+						//创建变量并迭代来获取最大的音量值
+						var maxVal = 0; 
+						for (var i = 0; i < buffer.length; i++) {
+							if (maxVal < buffer[i]) {
+								maxVal = buffer[i];
+							}
+						}
+						var max=Math.ceil(maxVal*100);
+						var count=10;
+						for (var i=1;i<=10;i++) {
+							count=i*10;
+							$("."+i+"").css("background","#FFFFFF");
+							if(count<max){
+								$("."+i+"").css("background","red");
+							}
+						}
+						count=10;
+				};
+	        })
+			      		
+ 
+		</script>
+	</body>
+</html>

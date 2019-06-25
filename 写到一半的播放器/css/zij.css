@@ -1,0 +1,642 @@
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			/*最上面的搜索和切换主题*/
+			#title{
+				width: 1200px;
+				background-color: #6EDEEF ;
+				height: 55px;
+				margin-top:5px ;
+				margin: 0px auto;
+			}
+			#title .titleleft{
+				border-right: solid 1px #FFFFFF;
+				padding: 5px 30px;
+				width: 300px;
+				height: 40px;
+				padding-left:100px ;
+				margin-left:60px ;
+				margin: 5px 0px;
+				float: left;
+			}
+			#title .titleleft samp{
+				font-size: 25px;
+				font-family: "叶根友毛笔行书2.0版";
+				color: #FFFFFF;
+				display: block;
+				width: 100px;
+				float: right;
+				padding-top:7px ;
+			}
+			img{
+				padding: 0px;
+				margin: 0px;
+				float: left;
+				opacity: 0.8;
+			}
+			#title  .ss{
+				float: left;
+				margin:15px 10px ;
+				
+			}
+			#title  .ss .sr{
+				border: 0px;
+				width: 300px;
+				height: 25px;
+				border-radius: 50px;
+				opacity: 0.9;
+			}
+			
+			#title  .ss .anniu{
+				border: 0px;
+				border-radius: 50px;
+				width: 80px;
+				height: 30px;
+				background: url(../img/timg4.gif);
+				opacity: 0.5;
+				color: #FFFFFF;
+				cursor: pointer;
+			}
+			.dropdown{
+				width: 160px;
+				float: right;
+				padding: 10px 10px;
+				margin-top:10px ;
+				font-size: 15px;
+				color: #FFFFFF;
+			}
+			.dropdown .c{
+				padding-left:10px ;
+			}
+			/*下面的时候导航栏*/
+			#daoh{
+				margin-top:10px ;
+			}
+			
+			#daoh ul{
+				height: 40px;
+				width: 1200px;
+				margin: 0px;
+				margin-left:75px ;
+			}
+			#daoh li{
+
+				margin-top:10px ;
+				float: left;
+				list-style-type: none;
+				padding: 0px 30px;
+			}
+			/*下面的是中间部分*/
+			#zho{
+				border:solid 1px #E1E1E2;
+				height: 561px;
+				width: 1200px;
+				margin: 0px auto;
+			}
+			#zho .you{
+				border:solid 1px red ;
+				height: 557px;
+				width: 897px;
+				float: right;
+			}
+			#zho .you ul p{
+				width: 85px;
+				height: 45px;
+				padding: 0px;
+				margin: 0px;
+				float: right;
+				background: url(../img/lu.gif) 0px  0px no-repeat;
+			}
+			
+			/*下面的是中间的左边功能*/
+			#zho .zuo{
+				height: 557px;
+				width: 300px;
+				float:left;
+			}
+			#zho .zuo .zuozho{
+				height: 400px;
+			
+			}
+			#zho .zuo .zuozho p{
+				font-size: 14px;
+				padding: 0px;
+				margin: 0px;
+			}
+			.zuoxia{
+				border-top:solid 1px #E1E1E2 ;
+				width: 300px;
+			}
+			.zuoxia .a{
+				float: left;
+				width: 105px;
+				height: 85px;
+				padding: 5px;
+				background-size:100% ;
+				z-index: 0.7;
+			}
+			.zuoxia .a button {
+				border: 0px;
+			}
+			.zuoxia .a button a{
+				border: 0px;
+				display: block;
+				width: 105px;
+				height: 85px;
+			}
+			.zuoxia .a button:hover{
+				border: 0px;
+				background-color:black;
+				
+			}
+			.zuoxia .b{
+				float: left;
+				width: 180px;
+				height: 90px;
+			}
+			.zuoxia .b .a1{
+				padding-left:20px ;
+				padding-top:20px ; 
+				margin-bottom:10px ;
+				margin: 0px;
+				height: 50px;
+				width: 180px;
+				font-size: 15px;
+				font-weight:bold ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+			}
+			.zuoxia .b .a2{
+				padding-left:20px ;
+				padding-top:5px ;
+				height: 50px;
+				width: 180px;
+			}
+			/*下面的是播放器的*/
+			#xia{
+				width: 1200px;
+				border: solid 1px #E1E1E2;
+				margin: 0px auto;
+				height: 50px;
+			}
+			#xia video{
+				padding: 0px;
+				margin: 0px;
+				height: 35px;
+				width: 1120px;
+			}
+			#xia .xiazuo{
+				margin-top:3px ;
+				padding-top:6px ;
+				padding-left: 10px;
+				width: 70px;
+				height: 35px;
+				float: left;
+				background-color: #FAFAFA;
+			}
+			/*#xia .xiayou{
+				float: left;
+			}*/
+			
+			#xia .shangsho{
+				display: block;
+				width: 25px;
+				height: 25px;
+				float: left;
+				background: url(../img/5ed86d8411a63c41988fc36a6c645d52.png) no-repeat;
+				background-size:80% ;
+				margin-right: 10px;
+			}
+			#xia .xiasho{
+				display: block;
+				width: 25px;
+				height: 25px;
+				float: left;
+				background:url(../img/1e38465bfb9cbc4c8542647bfecb435c.png) 0px 1px no-repeat;
+				background-size:75% ;
+				height: 25px;
+				
+			}
+			/*下面的是歌词的页面*/
+			
+			.xs{
+				display: none;
+				background-color: #FFFFFF;
+				width: 100px;
+				height: 100px;
+				border: solid 1px red;
+				position: relative;
+				z-index: 3;
+			}
+			.xs .lunzhuan{
+				border: solid 1px black;
+				width: 50%;
+				float: right;
+				
+			}
+			.xs .lunzhuan .geci{
+				/*border: solid 1px black;*/
+				overflow:hidden;
+				width: 100%;
+				height: 550px;
+				
+			}
+			.xs .lunzhuan .geci .tom{
+				/*border: solid 1px black;*/
+				width: 100%;
+				height: 100px;
+				position: relative;
+				background-color: #FFFFFF;
+			}
+			.xs .lunzhuan .geci .geul{
+				/*	padding-left:40px ;*/
+			}
+			.xs .lunzhuan .geci .geul li{
+					text-align: center;
+			}
+			.xs .tup{
+				/*border: solid 1px blue;*/
+				/*overflow:hidden;*/
+				width: 46%;
+				height: 555px;
+				float: left;
+				margin-left:15px ;
+			}
+			.xs .tup iframe{
+				border: solid 0px;
+				width: 100%;
+				height: 555px;
+				float: left;
+			}
+			#sosuolan{
+				display: none;
+				border: solid 1px red;
+				width: 100%;
+				height: 550px;
+				
+			}
+			#sosuolan ul {
+				width: 60%;
+				float: left;
+				padding: 10px;
+			}
+			#sosuolan ul li{
+				list-style-type: none;
+				padding: 5px;
+				width: 60%;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+			}
+			#sosuolan .ges li{
+				list-style-type: none;
+				padding: 5px;
+				width: 60%;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+			}
+			#sosuolan .xingxs{
+				border-top: solid 1px #E1E1E2;
+				border-bottom: solid 1px #E1E1E2;
+				height: 40px;
+
+			}
+			#sosuolan .xingxs .zuos{
+				border-right: solid 1px #E1E1E2;
+				padding: 10px;
+				width: 60%;
+				height: 40px;
+				float: left;
+			}
+			#sosuolan .xingxs .yous{
+				width: 38%;
+				height: 40px;
+				float: right;
+				padding: 10px;
+			}
+			.ges{
+				margin: 0px;
+				width: 38%;
+				float: right;
+			}
+			/*鼠标跟着移动*/
+			#div1{
+	            width: 50px;
+	            height: 50px;
+	            background: url(../img/1374fe60-f12a-4aa4-a2ca-c333c4f2561e.gif);
+	            background-size: 100%;
+	            position: absolute;
+	            z-index: 99999;
+	            left: 0;
+	            top: 0;
+        	}
+        	/*下面的是选项卡中的个性分类*/
+        	#content .a h4{
+        		padding-left: 10px;
+        	}
+        	#content .a .fenglei{
+        		/*border: solid 1px red;*/
+        		width: 98%;
+        		height: 15%;
+        		margin: 10px;
+        		background-color: #E6E7EA;
+        		padding: 5px 15px;
+        	}
+        	
+			#content .a .fenglei ul li{
+				float: left;
+				border-right: solid 1px #FFFFFF ;
+				list-style-type:none ;
+				width: 165px;
+				text-align: center;
+				font-size: 15px;
+			}
+			/*下面的是分类中的精品栏目*/
+			.xianshi ul li .xstup{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			.xianshi ul li .xstup img{
+				width: 185px;
+				height: 160px;
+			}
+			.xianshi ul{
+				padding-left:10px ;
+			}
+			.xianshi ul li .xswenzi{
+			/*	border: solid 1px red;*/
+				width: 185px;
+				height: 30px;
+				font-size:12px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				
+			}.xianshi a{
+				color: #000000;
+			}
+			.xianshi a:hover{
+				text-decoration: none;
+			}
+			.xianshi ul li:hover{
+				opacity: 4;
+				background-color:black;
+				
+			}
+			.xianshi ul li:hover .xswenzi{
+				background-color:#FFFFFF;
+				
+			}
+			.xianshi ul li {
+				float: left;
+				margin: 10px;
+				list-style-type: none;
+			}
+			/*里面的点击显示*/
+			
+			.xsjieguo ul li .xstup{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			.xsjieguo ul li .xstup img{
+				width: 185px;
+				height: 160px;
+			}
+			.xsjieguo ul{
+				padding-left:10px ;
+			}
+			.xsjieguo ul li .xswenzi{
+			/*	border: solid 1px red;*/
+				width: 185px;
+				height: 30px;
+				font-size:12px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				
+			}.xsjieguo a{
+				color: #000000;
+			}
+			.xsjieguo a:hover{
+				text-decoration: none;
+			}
+			.xsjieguo ul li:hover{
+				opacity: 4;
+				background-color:black;
+			}
+			.xsjieguo ul li:hover .xswenzi{
+				background-color:#FFFFFF;
+			}
+			.xsjieguo ul li {
+				float: left;
+				margin: 10px;
+				list-style-type: none;
+			}
+			
+			/*下面的是歌手的页面*/
+			#ges .yuzho {
+				padding-left: 10px;
+				height: 30px;
+				background-color: #E1E1E2;
+			}
+			#ges .yuzho li{
+				list-style: none;
+				float: left;
+				width: 100px;
+				font-size: 15px;
+				
+				
+			}
+			#ges .yuzho li a{
+				color: #000000;
+			}
+			#ges .yuzho  ul li:hover{
+				opacity: 4;
+				background-color:black;
+			}
+			/*显示全部*/
+			.geshoxsquanb ul li {
+				float: left;
+				margin: 10px;
+				list-style-type: none;
+			}
+			.geshoxsquanb ul li:hover{
+				opacity: 4;
+				background-color:black;
+			}
+			.geshoxsquanb ul li:hover .name{
+				background-color:#FFFFFF;
+			}
+			.geshoxsquanb ul li .geshotup{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			.geshoxsquanb ul li .geshotup img{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			
+			.geshoxsquanb ul li .name{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 30px;
+				font-size:12px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				text-align: center;
+			}
+			
+			/*下面的是点击后的歌手显示*/
+			.dianjiho ul li {
+				float: left;
+				margin: 10px;
+				list-style-type: none;
+			}
+			.dianjiho ul li:hover{
+				opacity: 4;
+				background-color:black;
+			}
+			.dianjiho ul li:hover .name{
+				background-color: #FFFFFF;
+			}
+			.dianjiho ul li .geshotup{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			.dianjiho ul li .geshotup img{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			
+			.dianjiho ul li .name{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 30px;
+				font-size:12px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				text-align: center;
+			}
+			/*下面的是点击歌手后显示歌曲*/
+			.gequ ul li {
+				float: left;
+				margin: 10px;
+				list-style-type: none;
+			}
+			.gequ ul li:hover{
+				opacity: 4;
+				background-color:black;
+			}
+			.gequ ul li:hover .xswenzi{
+				background-color: #FFFFFF;
+			}
+			.gequ ul li .xstup{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			.gequ ul li .xstup img{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 160px;
+			}
+			
+			.gequ ul li .xswenzi{
+				/*border: solid 1px red;*/
+				width: 185px;
+				height: 30px;
+				font-size:12px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				text-align: center;
+			}
+			/*下面的是最新音乐环节*/
+			#three .zuix{
+				padding-left:10px ;
+				/*border: solid 1px red;*/
+				height: 35px;
+				background-color: #E1E1E2;
+				margin: 0px;
+			}
+			#three .zuix li{
+				list-style-type: none;
+				float: left;
+				width: 10%;
+				padding:5px ;
+			}
+			#three .zuix li a{
+				color: #000000;
+			}
+			//显示
+			#three  .zuixinxs{
+				border: solid 1px red;
+			}
+			#three  .zuixinxs .zuo ul li{
+				border: solid 1px red;		
+				font-size:12px ;
+				padding-left:10px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+			}
+			#three  .zuixinxs .zuo ul li a{
+				color: #000000;	
+			}
+			#three  .zuixinxs .zuo ul li a:hover{
+				text-decoration: none;
+			}
+			#three  .zuixinxs .zuo ul li a:visited{
+				text-decoration: none;
+			}
+			
+			
+			#three  .zuixinxs .zho ul li{
+				border: solid 1px red;		
+				font-size:12px ;
+				padding-left:10px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				text-align: center;
+			}
+			#three  .zuixinxs .zho ul li a{
+				color: #000000;	
+			}
+			#three  .zuixinxs .zho ul li a:hover{
+				text-decoration: none;
+			}
+			#three  .zuixinxs .zho ul li a:visited{
+				text-decoration: none;
+			}
+			
+
+			#three  .zuixinxs .you ul li{
+				border: solid 1px red;		
+				font-size:12px ;
+				padding-left:10px ;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				text-align: center;
+			}
+			#three  .zuixinxs .you ul li a{
+				color: #000000;	
+			}
+			#three  .zuixinxs .you ul li a:hover{
+				text-decoration: none;
+			}
+			#three  .zuixinxs .you ul li a:visited{
+				text-decoration: none;
+			}

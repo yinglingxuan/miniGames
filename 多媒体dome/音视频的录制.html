@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video id="video" src="" controls></video>
+		<h3>请静候十秒</h3>
+		<!--<audio id="video" src="" controls autoplay></audio>-->
+		<script type="text/javascript">
+			var options = {audio: true, video: true};//允许音频 视屏
+		    navigator.mediaDevices.getUserMedia(options).then(function (mediaStream) {//导航.媒体设备.获取用户媒体（json形式写是否支持媒体的类型）.接下来
+		        console.info(mediaStream);
+		        var ctx = new AudioContext();
+		        // 视音频源
+		        var src = ctx.createMediaStreamSource(mediaStream); // 获取音频来源
+/*		        ctx.play("../img/林志松出品.mp4");  //直接播放这个地址的音频*/
+		        mediaRecorder = new MediaRecorder(mediaStream);//媒体记录对象     多媒体录音  放入源头的参数mediaStream
+		        var chunks = [], startTime = 0;    //用来保存音频的数据
+       			mediaRecorder.blobs = [];         //也是用来保存音频数据
+       			
+       			mediaRecorder.start();  //开始录音
+       			mediaRecorder.ondataavailable = function(e) {//有效数据事件  录音有数据了就触发这个事件
+		            mediaRecorder.blobs.push(e.data);
+		            chunks.push(e.data);   //保存数据
+		        };
+		        
+		         mediaRecorder.onstop = function (e) {//录音完成事件 也就是录音停止后
+		            recorderFile = new Blob(chunks, { 'type' : mediaRecorder.mimeType });  //获取录音生成的文件
+		            chunks = [];
+		            video.src = URL.createObjectURL(recorderFile);    //获取这个音频的文件路径
+		            video.play();
+		        };
+		        
+		        //四秒后停止录音
+		        setTimeout(function () {
+		            mediaRecorder.stop();   //停止录音
+		            mediaStream.getTracks().forEach(function (e) {   //遍历所有通道 关闭通道，不然会一直录
+		                e.stop();
+		            })
+		        }, 4000);
+		    }).catch(function (reason) {
+		        console.error(reason);
+		    })
+		</script>
+	</body>
+</html>
